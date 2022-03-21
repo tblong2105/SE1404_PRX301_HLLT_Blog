@@ -1,13 +1,13 @@
-package com.se1404_prx301_hllt_project;
+package com.se1404_prx301_hllt.Blog;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SE1404PRX301HLLTProjectApplication {
+public class BlogApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SE1404PRX301HLLTProjectApplication.class, args);
+		SpringApplication.run(BlogApplication.class, args);
 	}
 
 }

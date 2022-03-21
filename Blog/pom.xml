@@ -8,10 +8,10 @@
 		<version>2.6.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.assigment.de140022</groupId>
-	<artifactId>de140022_practicalexam</artifactId>
+	<groupId>com.se1404_prx301_hllt</groupId>
+	<artifactId>Blog</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>de140022_practicalexam</name>
+	<name>Blog</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>

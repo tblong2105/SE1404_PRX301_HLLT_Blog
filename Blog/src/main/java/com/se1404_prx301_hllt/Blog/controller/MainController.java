@@ -11,4 +11,9 @@ public class MainController {
 	public String mainController(Model model) {
 		return "theme/magdesign/index";
 	}
+	
+	@GetMapping("/allblog")
+	public String allBlogController(Model model) {
+		return "theme/magdesign/allblog";
+	}
 }

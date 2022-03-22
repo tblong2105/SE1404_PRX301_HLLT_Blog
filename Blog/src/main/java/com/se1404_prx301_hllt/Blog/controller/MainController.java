@@ -30,7 +30,8 @@ public class MainController {
 //		Blog blog=new Blog("1","2","3","4","5","6","7","8");
 //		create(blog);
 //		System.out.println("======create======>"+ listBlog);
-//		update(blog);
+//		Blog blog2=new Blog(1,"1","2","3","4","5","6","7","8","9");
+//		update(blog2);
 //		System.out.println("======update======>"+ listBlog);
 //		delete(2);
 //		System.out.println("======delete======>"+ listBlog);

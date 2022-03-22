@@ -6,7 +6,7 @@ and open the template in the editor.
 -->
 
 <blog_list>
-    <blog id=1>
+    <blog id="1">
         <title>ABC1</title>
         <category>Sport1</category>
         <sortDescription>Sort Description1</sortDescription>
@@ -17,7 +17,7 @@ and open the template in the editor.
 		<authorPosition>HLLT Position1</authorPosition>
 		<authorImage>HLLT Image1</authorImage>
     </blog>
-	<blog id=2>
+	<blog id="2">
         <title>ABC2</title>
         <category>Sport2</category>
         <sortDescription>Sort Description2</sortDescription>
@@ -28,7 +28,7 @@ and open the template in the editor.
 		<authorPosition>HLLT Position2</authorPosition>
 		<authorImage>HLLT Image2</authorImage>
     </blog>
-	<blog id=3>
+	<blog id="3">
         <title>ABC3</title>
         <category>Sport3</category>
         <sortDescription>Sort Description3</sortDescription>

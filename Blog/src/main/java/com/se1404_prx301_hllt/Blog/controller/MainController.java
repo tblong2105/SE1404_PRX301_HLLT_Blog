@@ -47,6 +47,21 @@ public class MainController {
 	public String getBlogByIdController(@RequestParam int id, Model model) {
 		return "theme/magdesign/blogdetail";
 	}
+	
+	@GetMapping("/allBlogAdmin")
+	public String adminController(Model model) {
+		return "theme/admin/allBlogAdmin";
+	}
+	
+	@GetMapping("/addBlogAdmin")
+	public String addBlogController(Model model) {
+		return "theme/admin/addBlogAdmin";
+	}
+	
+	@GetMapping("/editBlogAdmin")
+	public String editBlogController(Model model) {
+		return "theme/admin/editBlogAdmin";
+	}
 
 	public Boolean create(Blog blog) {
 		try {

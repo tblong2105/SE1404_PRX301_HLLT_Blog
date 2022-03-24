@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class=" ">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
 	<!-- 
@@ -10,14 +10,13 @@
         -->
 	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 	<meta charset="utf-8" />
-	<title>Ultra Admin : Edit Blog</title>
+	<title>Admin Page</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
 
 	<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" /> <!-- Favicon -->
-	<link rel="apple-touch-icon-precomposed" href="images/apple-touch-icon-57-precomposed.png">
-	<!-- For iPhone -->
+	<link rel="apple-touch-icon-precomposed" href="images/apple-touch-icon-57-precomposed.png"> <!-- For iPhone -->
 	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/apple-touch-icon-114-precomposed.png">
 	<!-- For iPhone 4 Retina display -->
 	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/apple-touch-icon-72-precomposed.png">
@@ -38,7 +37,6 @@
 	<!-- CORE CSS FRAMEWORK - END -->
 
 	<!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - START -->
-	<link href="plugins/datepicker/css/datepicker.css" rel="stylesheet" type="text/css" media="screen" />
 	<!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - END -->
 
 
@@ -376,7 +374,7 @@
 					<li class="profile">
 						<a href="#" data-toggle="dropdown" class="toggle">
 							<img src="images/profile-blog.jpg" alt="user-image" class="img-circle img-inline">
-							<span>Mark Yurey <i class="fa fa-angle-down"></i></span>
+							<span>HLLT<i class="fa fa-angle-down"></i></span>
 						</a>
 						<ul class="dropdown-menu profile animated fadeIn">
 							<li>
@@ -431,7 +429,7 @@
 				<div class="profile-info row">
 
 					<div class="profile-image col-md-4 col-sm-4 col-xs-4">
-						<a href="ui-profile.html">
+						<a href="/">
 							<img src="images/profile-blog.jpg" class="img-responsive img-circle">
 						</a>
 					</div>
@@ -439,7 +437,7 @@
 					<div class="profile-details col-md-8 col-sm-8 col-xs-8">
 
 						<h3>
-							<a href="ui-profile.html">Mark Yurey</a>
+							<a href="ui-profile.html">HLLT</a>
 
 							<!-- Available statuses: online, idle, busy, away and offline -->
 							<span class="profile-status online"></span>
@@ -463,13 +461,13 @@
 						</a>
 						<ul class="sub-menu" style='display:block;'>
 							<li>
-								<a class="active" href="allBlog.html">All Blogs</a>
+								<a class="active" href="/allBlogAdmin">All Blogs</a>
 							</li>
 							<li>
-								<a class="" href="addBlog.html">Add Blog</a>
+								<a class="" href="/addBlogAdmin">Add Blog</a>
 							</li>
 							<li>
-								<a class="" href="editBlog.html">Edit Blog</a>
+								<a class="" href="/editBlogAdmin">Edit Blog</a>
 							</li>
 						</ul>
 					</li>
@@ -477,35 +475,6 @@
 
 			</div>
 			<!-- MAIN MENU - END -->
-
-
-
-			<div class="project-info">
-
-				<div class="block1">
-					<div class="data">
-						<span class='title'>New&nbsp;Users</span>
-						<span class='total'>245</span>
-					</div>
-					<div class="graph">
-						<span class="sidebar_orders">...</span>
-					</div>
-				</div>
-
-				<div class="block2">
-					<div class="data">
-						<span class='title'>Subscribers</span>
-						<span class='total'>990</span>
-					</div>
-					<div class="graph">
-						<span class="sidebar_visitors">...</span>
-					</div>
-				</div>
-
-			</div>
-
-
-
 		</div>
 		<!--  SIDEBAR - END -->
 		<!-- START CONTENT -->
@@ -516,7 +485,7 @@
 					<div class="page-title">
 
 						<div class="pull-left">
-							<h1 class="title">Edit Blog</h1>
+							<h1 class="title">Blog Posts</h1>
 						</div>
 
 						<div class="pull-right hidden-xs">
@@ -528,7 +497,7 @@
 									<a href="blo-blogs.html">Blogs</a>
 								</li>
 								<li class="active">
-									<strong>Edit Blog</strong>
+									<strong>All Blogs</strong>
 								</li>
 							</ol>
 						</div>
@@ -536,10 +505,42 @@
 					</div>
 				</div>
 				<div class="clearfix"></div>
-				<div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+
+
+				<div class="col-md-9 col-sm-12 col-xs-12">
+
+					<div class="input-group primary">
+						<span class="input-group-addon">
+							<span class="arrow"></span>
+							<i class="fa fa-search"></i>
+						</span>
+						<input type="text" class="form-control search-page-input" placeholder="Search" value="">
+					</div><br>
+				</div>
+				<div class="col-md-3 col-sm-12 col-xs-12">
+					<nav class='pull-right'>
+						<!--                                  <ul class="pager" style="margin:0px;">
+                                                                                                <li><a href="#"><i class='fa fa-arrow-left icon-xs icon-orange icon-secondary'></i></a></li>
+                                                                                                <li><a href="#"><i class='fa fa-arrow-right icon-xs icon-orange icon-secondary'></i></a></li>
+                                                                                              </ul> -->
+
+						<ul class="pagination pull-right" style="margin:0px;">
+							<li><a href="#">«</a></li>
+							<li class="active"><a href="#">1</a></li>
+							<li><a href="#">2</a></li>
+							<li><a href="#">3</a></li>
+							<li><a href="#">»</a></li>
+						</ul>
+
+					</nav>
+				</div>
+
+				<div class="clearfix"></div><br>
+
+				<div class="col-lg-12">
 					<section class="box ">
 						<header class="panel_header">
-							<h2 class="title pull-left">Blog Information</h2>
+							<h2 class="title pull-left">Blog Posts</h2>
 							<div class="actions panel_actions pull-right">
 								<i class="box_toggle fa fa-chevron-down"></i>
 								<i class="box_setting fa fa-cog" data-toggle="modal" href="#section-settings"></i>
@@ -548,294 +549,312 @@
 						</header>
 						<div class="content-body">
 							<div class="row">
-								<form action="#" method="post">
+								<div class="col-md-12 col-sm-12 col-xs-12">
 
-									<div class="form-group">
-										<label class="form-label" for="field-1">Blog Title</label>
-										<span class="desc"></span>
-										<div class="controls">
-											<input type="text" value="Graphic design in web" class="form-control"
-												id="field-1">
-										</div>
+
+									<!-- start -->
+
+									<div class="blog_post">
+										<h3><a href="blo-blog-view.html">Contrast and Similarity in Graphic Design</a>
+										</h3>
+										<h5>Written by <a href="#">Me</a> on May 11, 2013.</h5>
+										<p class="blog_info">
+											<i class="fa fa-comment"></i> <a href="#comments">3 comments</a>
+											&nbsp;&nbsp;&nbsp;&nbsp;
+											<i class="fa fa-tags"></i> <a href="#">responsive</a> <a href="#">web</a> <a
+												href="#">mobile</a>
+										</p>
+										<img class="" style="max-width: 800px;height: auto;width:100%;margin:30px 0;"
+											src="images/blog-1.jpg" alt="">
+										<p class="blog-content">Bacon ipsum dolor sit amet nulla ham qui sint
+											exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit,
+											dolore aliqua non est magna in labore pig pork biltong. <br />Bacon ipsum
+											dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis
+											velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork
+											biltong.</p>
+										<a href="blo-blog-view.html" class="btn btn-primary"><span>Read more</span>
+											&nbsp; <i class="fa fa-angle-double-right"></i></a>
 									</div>
 
-									<div class="form-group">
-										<label class="form-label" for="field-2">Blog Categories</label>
-										<span class="desc"></span>
-										<div class="controls">
-											<input type="text" value="Animals" class="form-control" id="field-2">
-										</div>
+									<div class="blog_post">
+										<h3><a href="blo-blog-view.html">Contrast and Similarity in Graphic Design</a>
+										</h3>
+										<h5>Written by <a href="#">Me</a> on May 11, 2013.</h5>
+										<p class="blog_info">
+											<i class="fa fa-comment"></i> <a href="#comments">3 comments</a>
+											&nbsp;&nbsp;&nbsp;&nbsp;
+											<i class="fa fa-tags"></i> <a href="#">responsive</a> <a href="#">web</a> <a
+												href="#">mobile</a>
+										</p>
+										<img class="" style="max-width: 800px;height: auto;width:100%;margin:30px 0;"
+											src="images/blog-2.jpg" alt="">
+										<p class="blog-content">Bacon ipsum dolor sit amet nulla ham qui sint
+											exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit,
+											dolore aliqua non est magna in labore pig pork biltong. <br />Bacon ipsum
+											dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis
+											velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork
+											biltong.</p>
+										<a href="blo-blog-view.html" class="btn btn-primary"><span>Read more</span>
+											&nbsp; <i class="fa fa-angle-double-right"></i></a>
 									</div>
 
-									<div class="form-group">
-										<label class="form-label" for="field-3">Sort Description</label>
-										<span class="desc"></span>
-										<div class="controls">
-											<input type="text" value="Sort Description" class="form-control"
-												id="field-3">
-										</div>
+
+									<div class="blog_post">
+										<h3><a href="blo-blog-view.html">Contrast and Similarity in Graphic Design</a>
+										</h3>
+										<h5>Written by <a href="#">Me</a> on May 11, 2013.</h5>
+										<p class="blog_info">
+											<i class="fa fa-comment"></i> <a href="#comments">3 comments</a>
+											&nbsp;&nbsp;&nbsp;&nbsp;
+											<i class="fa fa-tags"></i> <a href="#">responsive</a> <a href="#">web</a> <a
+												href="#">mobile</a>
+										</p>
+										<img class="" style="max-width: 800px;height: auto;width:100%;margin:30px 0;"
+											src="images/blog-3.jpg" alt="">
+										<p class="blog-content">Bacon ipsum dolor sit amet nulla ham qui sint
+											exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit,
+											dolore aliqua non est magna in labore pig pork biltong. <br />Bacon ipsum
+											dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis
+											velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork
+											biltong.</p>
+										<a href="blo-blog-view.html" class="btn btn-primary"><span>Read more</span>
+											&nbsp; <i class="fa fa-angle-double-right"></i></a>
 									</div>
 
-									<div class="form-group">
-										<label class="form-label" for="field-4">Long Description</label>
-										<span class="desc"></span>
-										<div class="controls">
-											<input type="text" value="Long Description" class="form-control"
-												id="field-4">
-										</div>
+									<div class="blog_post">
+										<h3><a href="blo-blog-view.html">Contrast and Similarity in Graphic Design</a>
+										</h3>
+										<h5>Written by <a href="#">Me</a> on May 11, 2013.</h5>
+										<p class="blog_info">
+											<i class="fa fa-comment"></i> <a href="#comments">3 comments</a>
+											&nbsp;&nbsp;&nbsp;&nbsp;
+											<i class="fa fa-tags"></i> <a href="#">responsive</a> <a href="#">web</a> <a
+												href="#">mobile</a>
+										</p>
+										<img class="" style="max-width: 800px;height: auto;width:100%;margin:30px 0;"
+											src="images/blog-4.jpg" alt="">
+										<p class="blog-content">Bacon ipsum dolor sit amet nulla ham qui sint
+											exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit,
+											dolore aliqua non est magna in labore pig pork biltong. <br />Bacon ipsum
+											dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis
+											velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork
+											biltong.</p>
+										<a href="blo-blog-view.html" class="btn btn-primary"><span>Read more</span>
+											&nbsp; <i class="fa fa-angle-double-right"></i></a>
 									</div>
 
-									<div class="form-group">
-										<label class="form-label" for="field-5">Image</label>
-										<span class="desc"></span>
-										<img class="img-responsive" src="images/blog-1.jpg" alt=""
-											style="max-width:120px;">
-										<div class="controls">
-											<input type="file" class="form-control" id="field-5">
-										</div>
-									</div>
 
-									<div class="form-group">
-										<label class="form-label" for="field-6">Author Name</label>
-										<span class="desc"></span>
-										<div class="controls">
-											<input type="text" value="Author Name" class="form-control" id="field-6">
-										</div>
-									</div>
 
-									<div class="form-group">
-										<label class="form-label" for="field-7">Author Position</label>
-										<span class="desc"></span>
-										<div class="controls">
-											<input type="text" value="Author Position" class="form-control"
-												id="field-7">
-										</div>
-									</div>
 
-									<div class="form-group">
-										<label class="form-label" for="field-8">Image</label>
-										<span class="desc"></span>
-										<img class="img-responsive" src="images/profile-blog.jpg" alt=""
-											style="max-width:120px;">
-										<div class="controls">
-											<input type="file" class="form-control" id="field-8">
-										</div>
-									</div>
+									<!-- end -->
 
-							</div>
 
-							<div class="text-left">
-								<button type="button" class="btn btn-primary">Save</button>
-								<button type="button" class="btn">Cancel</button>
+
+
+								</div>
 							</div>
 						</div>
-						</form>
+					</section>
 				</div>
 
 
-	</div>
-	</section>
-	</div>
+			</section>
+		</section>
+		<!-- END CONTENT -->
+		<div class="page-chatapi hideit">
+
+			<div class="search-bar">
+				<input type="text" placeholder="Search" class="form-control">
+			</div>
+
+			<div class="chat-wrapper">
+				<h4 class="group-head">Groups</h4>
+				<ul class="group-list list-unstyled">
+					<li class="group-row">
+						<div class="group-status available">
+							<i class="fa fa-circle"></i>
+						</div>
+						<div class="group-info">
+							<h4><a href="#">Work</a></h4>
+						</div>
+					</li>
+					<li class="group-row">
+						<div class="group-status away">
+							<i class="fa fa-circle"></i>
+						</div>
+						<div class="group-info">
+							<h4><a href="#">Friends</a></h4>
+						</div>
+					</li>
+
+				</ul>
 
 
+				<h4 class="group-head">Favourites</h4>
+				<ul class="contact-list">
 
-	</section>
-	</section>
-	<!-- END CONTENT -->
-	<div class="page-chatapi hideit">
+					<li class="user-row" id='chat_user_1' data-user-id='1'>
+						<div class="user-img">
+							<a href="#"><img src="images/avatar-1.png" alt=""></a>
+						</div>
+						<div class="user-info">
+							<h4><a href="#">Clarine Vassar</a></h4>
+							<span class="status available" data-status="available"> Available</span>
+						</div>
+						<div class="user-status available">
+							<i class="fa fa-circle"></i>
+						</div>
+					</li>
+					<li class="user-row" id='chat_user_2' data-user-id='2'>
+						<div class="user-img">
+							<a href="#"><img src="images/avatar-2.png" alt=""></a>
+						</div>
+						<div class="user-info">
+							<h4><a href="#">Brooks Latshaw</a></h4>
+							<span class="status away" data-status="away"> Away</span>
+						</div>
+						<div class="user-status away">
+							<i class="fa fa-circle"></i>
+						</div>
+					</li>
+					<li class="user-row" id='chat_user_3' data-user-id='3'>
+						<div class="user-img">
+							<a href="#"><img src="images/avatar-3.png" alt=""></a>
+						</div>
+						<div class="user-info">
+							<h4><a href="#">Clementina Brodeur</a></h4>
+							<span class="status busy" data-status="busy"> Busy</span>
+						</div>
+						<div class="user-status busy">
+							<i class="fa fa-circle"></i>
+						</div>
+					</li>
 
-		<div class="search-bar">
-			<input type="text" placeholder="Search" class="form-control">
+				</ul>
+
+
+				<h4 class="group-head">More Contacts</h4>
+				<ul class="contact-list">
+
+					<li class="user-row" id='chat_user_4' data-user-id='4'>
+						<div class="user-img">
+							<a href="#"><img src="images/avatar-4.png" alt=""></a>
+						</div>
+						<div class="user-info">
+							<h4><a href="#">Carri Busey</a></h4>
+							<span class="status offline" data-status="offline"> Offline</span>
+						</div>
+						<div class="user-status offline">
+							<i class="fa fa-circle"></i>
+						</div>
+					</li>
+					<li class="user-row" id='chat_user_5' data-user-id='5'>
+						<div class="user-img">
+							<a href="#"><img src="images/avatar-5.png" alt=""></a>
+						</div>
+						<div class="user-info">
+							<h4><a href="#">Melissa Dock</a></h4>
+							<span class="status offline" data-status="offline"> Offline</span>
+						</div>
+						<div class="user-status offline">
+							<i class="fa fa-circle"></i>
+						</div>
+					</li>
+					<li class="user-row" id='chat_user_6' data-user-id='6'>
+						<div class="user-img">
+							<a href="#"><img src="images/avatar-1.png" alt=""></a>
+						</div>
+						<div class="user-info">
+							<h4><a href="#">Verdell Rea</a></h4>
+							<span class="status available" data-status="available"> Available</span>
+						</div>
+						<div class="user-status available">
+							<i class="fa fa-circle"></i>
+						</div>
+					</li>
+					<li class="user-row" id='chat_user_7' data-user-id='7'>
+						<div class="user-img">
+							<a href="#"><img src="images/avatar-2.png" alt=""></a>
+						</div>
+						<div class="user-info">
+							<h4><a href="#">Linette Lheureux</a></h4>
+							<span class="status busy" data-status="busy"> Busy</span>
+						</div>
+						<div class="user-status busy">
+							<i class="fa fa-circle"></i>
+						</div>
+					</li>
+					<li class="user-row" id='chat_user_8' data-user-id='8'>
+						<div class="user-img">
+							<a href="#"><img src="images/avatar-3.png" alt=""></a>
+						</div>
+						<div class="user-info">
+							<h4><a href="#">Araceli Boatright</a></h4>
+							<span class="status away" data-status="away"> Away</span>
+						</div>
+						<div class="user-status away">
+							<i class="fa fa-circle"></i>
+						</div>
+					</li>
+					<li class="user-row" id='chat_user_9' data-user-id='9'>
+						<div class="user-img">
+							<a href="#"><img src="images/avatar-4.png" alt=""></a>
+						</div>
+						<div class="user-info">
+							<h4><a href="#">Clay Peskin</a></h4>
+							<span class="status busy" data-status="busy"> Busy</span>
+						</div>
+						<div class="user-status busy">
+							<i class="fa fa-circle"></i>
+						</div>
+					</li>
+					<li class="user-row" id='chat_user_10' data-user-id='10'>
+						<div class="user-img">
+							<a href="#"><img src="images/avatar-5.png" alt=""></a>
+						</div>
+						<div class="user-info">
+							<h4><a href="#">Loni Tindall</a></h4>
+							<span class="status away" data-status="away"> Away</span>
+						</div>
+						<div class="user-status away">
+							<i class="fa fa-circle"></i>
+						</div>
+					</li>
+					<li class="user-row" id='chat_user_11' data-user-id='11'>
+						<div class="user-img">
+							<a href="#"><img src="images/avatar-1.png" alt=""></a>
+						</div>
+						<div class="user-info">
+							<h4><a href="#">Tanisha Kimbro</a></h4>
+							<span class="status idle" data-status="idle"> Idle</span>
+						</div>
+						<div class="user-status idle">
+							<i class="fa fa-circle"></i>
+						</div>
+					</li>
+					<li class="user-row" id='chat_user_12' data-user-id='12'>
+						<div class="user-img">
+							<a href="#"><img src="images/avatar-2.png" alt=""></a>
+						</div>
+						<div class="user-info">
+							<h4><a href="#">Jovita Tisdale</a></h4>
+							<span class="status idle" data-status="idle"> Idle</span>
+						</div>
+						<div class="user-status idle">
+							<i class="fa fa-circle"></i>
+						</div>
+					</li>
+
+				</ul>
+			</div>
+
 		</div>
 
-		<div class="chat-wrapper">
-			<h4 class="group-head">Groups</h4>
-			<ul class="group-list list-unstyled">
-				<li class="group-row">
-					<div class="group-status available">
-						<i class="fa fa-circle"></i>
-					</div>
-					<div class="group-info">
-						<h4><a href="#">Work</a></h4>
-					</div>
-				</li>
-				<li class="group-row">
-					<div class="group-status away">
-						<i class="fa fa-circle"></i>
-					</div>
-					<div class="group-info">
-						<h4><a href="#">Friends</a></h4>
-					</div>
-				</li>
 
-			</ul>
+		<div class="chatapi-windows ">
 
 
-			<h4 class="group-head">Favourites</h4>
-			<ul class="contact-list">
-
-				<li class="user-row" id='chat_user_1' data-user-id='1'>
-					<div class="user-img">
-						<a href="#"><img src="images/avatar-1.png" alt=""></a>
-					</div>
-					<div class="user-info">
-						<h4><a href="#">Clarine Vassar</a></h4>
-						<span class="status available" data-status="available"> Available</span>
-					</div>
-					<div class="user-status available">
-						<i class="fa fa-circle"></i>
-					</div>
-				</li>
-				<li class="user-row" id='chat_user_2' data-user-id='2'>
-					<div class="user-img">
-						<a href="#"><img src="images/avatar-2.png" alt=""></a>
-					</div>
-					<div class="user-info">
-						<h4><a href="#">Brooks Latshaw</a></h4>
-						<span class="status away" data-status="away"> Away</span>
-					</div>
-					<div class="user-status away">
-						<i class="fa fa-circle"></i>
-					</div>
-				</li>
-				<li class="user-row" id='chat_user_3' data-user-id='3'>
-					<div class="user-img">
-						<a href="#"><img src="images/avatar-3.png" alt=""></a>
-					</div>
-					<div class="user-info">
-						<h4><a href="#">Clementina Brodeur</a></h4>
-						<span class="status busy" data-status="busy"> Busy</span>
-					</div>
-					<div class="user-status busy">
-						<i class="fa fa-circle"></i>
-					</div>
-				</li>
-
-			</ul>
-
-
-			<h4 class="group-head">More Contacts</h4>
-			<ul class="contact-list">
-
-				<li class="user-row" id='chat_user_4' data-user-id='4'>
-					<div class="user-img">
-						<a href="#"><img src="images/avatar-4.png" alt=""></a>
-					</div>
-					<div class="user-info">
-						<h4><a href="#">Carri Busey</a></h4>
-						<span class="status offline" data-status="offline"> Offline</span>
-					</div>
-					<div class="user-status offline">
-						<i class="fa fa-circle"></i>
-					</div>
-				</li>
-				<li class="user-row" id='chat_user_5' data-user-id='5'>
-					<div class="user-img">
-						<a href="#"><img src="images/avatar-5.png" alt=""></a>
-					</div>
-					<div class="user-info">
-						<h4><a href="#">Melissa Dock</a></h4>
-						<span class="status offline" data-status="offline"> Offline</span>
-					</div>
-					<div class="user-status offline">
-						<i class="fa fa-circle"></i>
-					</div>
-				</li>
-				<li class="user-row" id='chat_user_6' data-user-id='6'>
-					<div class="user-img">
-						<a href="#"><img src="images/avatar-1.png" alt=""></a>
-					</div>
-					<div class="user-info">
-						<h4><a href="#">Verdell Rea</a></h4>
-						<span class="status available" data-status="available"> Available</span>
-					</div>
-					<div class="user-status available">
-						<i class="fa fa-circle"></i>
-					</div>
-				</li>
-				<li class="user-row" id='chat_user_7' data-user-id='7'>
-					<div class="user-img">
-						<a href="#"><img src="images/avatar-2.png" alt=""></a>
-					</div>
-					<div class="user-info">
-						<h4><a href="#">Linette Lheureux</a></h4>
-						<span class="status busy" data-status="busy"> Busy</span>
-					</div>
-					<div class="user-status busy">
-						<i class="fa fa-circle"></i>
-					</div>
-				</li>
-				<li class="user-row" id='chat_user_8' data-user-id='8'>
-					<div class="user-img">
-						<a href="#"><img src="images/avatar-3.png" alt=""></a>
-					</div>
-					<div class="user-info">
-						<h4><a href="#">Araceli Boatright</a></h4>
-						<span class="status away" data-status="away"> Away</span>
-					</div>
-					<div class="user-status away">
-						<i class="fa fa-circle"></i>
-					</div>
-				</li>
-				<li class="user-row" id='chat_user_9' data-user-id='9'>
-					<div class="user-img">
-						<a href="#"><img src="images/avatar-4.png" alt=""></a>
-					</div>
-					<div class="user-info">
-						<h4><a href="#">Clay Peskin</a></h4>
-						<span class="status busy" data-status="busy"> Busy</span>
-					</div>
-					<div class="user-status busy">
-						<i class="fa fa-circle"></i>
-					</div>
-				</li>
-				<li class="user-row" id='chat_user_10' data-user-id='10'>
-					<div class="user-img">
-						<a href="#"><img src="images/avatar-5.png" alt=""></a>
-					</div>
-					<div class="user-info">
-						<h4><a href="#">Loni Tindall</a></h4>
-						<span class="status away" data-status="away"> Away</span>
-					</div>
-					<div class="user-status away">
-						<i class="fa fa-circle"></i>
-					</div>
-				</li>
-				<li class="user-row" id='chat_user_11' data-user-id='11'>
-					<div class="user-img">
-						<a href="#"><img src="images/avatar-1.png" alt=""></a>
-					</div>
-					<div class="user-info">
-						<h4><a href="#">Tanisha Kimbro</a></h4>
-						<span class="status idle" data-status="idle"> Idle</span>
-					</div>
-					<div class="user-status idle">
-						<i class="fa fa-circle"></i>
-					</div>
-				</li>
-				<li class="user-row" id='chat_user_12' data-user-id='12'>
-					<div class="user-img">
-						<a href="#"><img src="images/avatar-2.png" alt=""></a>
-					</div>
-					<div class="user-info">
-						<h4><a href="#">Jovita Tisdale</a></h4>
-						<span class="status idle" data-status="idle"> Idle</span>
-					</div>
-					<div class="user-status idle">
-						<i class="fa fa-circle"></i>
-					</div>
-				</li>
-
-			</ul>
 		</div>
-
-	</div>
-
-
-	<div class="chatapi-windows ">
-
-
-	</div>
 	</div>
 	<!-- END CONTAINER -->
 	<!-- LOAD FILES AT PAGE END FOR FASTER LOADING -->
@@ -852,10 +871,6 @@
 
 
 	<!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - START -->
-	<script src="plugins/datepicker/js/datepicker.js" type="text/javascript"></script>
-	<script src="plugins/autosize/autosize.min.js" type="text/javascript"></script>
-	<script src="plugins/inputmask/min/jquery.inputmask.bundle.min.js" type="text/javascript"></script>
-	<script src="plugins/ckeditor/ckeditor.js" type="text/javascript"></script>
 	<!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - END -->
 
 

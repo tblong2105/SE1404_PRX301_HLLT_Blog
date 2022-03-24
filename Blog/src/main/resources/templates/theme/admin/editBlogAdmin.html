@@ -528,7 +528,7 @@
 										<label class="form-label" for="field-1">Blog Title</label>
 										<span class="desc"></span>
 										<div class="controls">
-											<input type="text" value="Graphic design in web" class="form-control"
+											<input type="text"  th:value="${Blog.title}" class="form-control"
 												id="field-1">
 										</div>
 									</div>
@@ -537,7 +537,7 @@
 										<label class="form-label" for="field-2">Blog Categories</label>
 										<span class="desc"></span>
 										<div class="controls">
-											<input type="text" value="Animals" class="form-control" id="field-2">
+											<input type="text" th:value="${Blog.category}" class="form-control" id="field-2">
 										</div>
 									</div>
 
@@ -545,7 +545,7 @@
 										<label class="form-label" for="field-3">Sort Description</label>
 										<span class="desc"></span>
 										<div class="controls">
-											<input type="text" value="Sort Description" class="form-control"
+											<input type="text"  th:value="${Blog.sortDescription}" class="form-control"
 												id="field-3">
 										</div>
 									</div>
@@ -554,7 +554,7 @@
 										<label class="form-label" for="field-4">Long Description</label>
 										<span class="desc"></span>
 										<div class="controls">
-											<input type="text" value="Long Description" class="form-control"
+											<input type="text" th:value="${Blog.longDescription}" class="form-control"
 												id="field-4">
 										</div>
 									</div>
@@ -562,7 +562,7 @@
 									<div class="form-group">
 										<label class="form-label" for="field-5">Image</label>
 										<span class="desc"></span>
-										<img class="img-responsive" src="images/blog-1.jpg" alt=""
+										<img class="img-responsive" th:src="${Blog.image}" alt=""
 											style="max-width:120px;">
 										<div class="controls">
 											<input type="file" class="form-control" id="field-5">
@@ -573,7 +573,7 @@
 										<label class="form-label" for="field-6">Author Name</label>
 										<span class="desc"></span>
 										<div class="controls">
-											<input type="text" value="Author Name" class="form-control" id="field-6">
+											<input type="text" th:value="${Blog.authorName}" class="form-control" id="field-6">
 										</div>
 									</div>
 
@@ -581,15 +581,15 @@
 										<label class="form-label" for="field-7">Author Position</label>
 										<span class="desc"></span>
 										<div class="controls">
-											<input type="text" value="Author Position" class="form-control"
+											<input type="text" th:value="${Blog.authorPosition}" class="form-control"
 												id="field-7">
 										</div>
 									</div>
 
 									<div class="form-group">
-										<label class="form-label" for="field-8">Image</label>
+										<label class="form-label" for="field-8">Author Image</label>
 										<span class="desc"></span>
-										<img class="img-responsive" src="images/profile-blog.jpg" alt=""
+										<img class="img-responsive" th:src="${Blog.authorImage}" alt=""
 											style="max-width:120px;">
 										<div class="controls">
 											<input type="file" class="form-control" id="field-8">

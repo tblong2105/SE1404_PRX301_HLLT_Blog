@@ -21,21 +21,37 @@ public class MainController {
 	@GetMapping("/")
 	public String mainController(Model model) {
 		staxService.read();
+		if (listBlog.size()>6)
+			model.addAttribute("listBlog", listBlog.subList(0, 6));
+		else {
+			model.addAttribute("listBlog", listBlog);
+		}
 		return "theme/magdesign/index";
 	}
 
 	@GetMapping("/allblog")
 	public String allBlogController(Model model) {
+		read();
+		model.addAttribute("listBlog", listBlog);
 		return "theme/magdesign/allblog";
 	}
 
 	@GetMapping("/blog")
 	public String getBlogByIdController(@RequestParam int id, Model model) {
+		read();
+		Blog blog = findByID(id);
+		model.addAttribute("Blog", blog);
 		return "theme/magdesign/blogdetail";
 	}
 
 	
-
-	
+	public Blog findByID(int id) {
+		for (int i = 0; i < listBlog.size(); i++) {
+			if (listBlog.get(i).getId() == id) {
+				return listBlog.get(i);
+			}
+		}
+		return new Blog();
+	}
 
 }

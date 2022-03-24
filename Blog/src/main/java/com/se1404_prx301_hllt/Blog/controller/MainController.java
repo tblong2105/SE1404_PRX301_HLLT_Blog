@@ -52,9 +52,7 @@ public class MainController {
 	@GetMapping("/blog")
 	public String getBlogByIdController(@RequestParam int id, Model model) {
 		read();
-		System.out.println("===========>"+listBlog);
 		Blog blog = findByID(id);
-		System.out.println("===========>"+blog);
 		model.addAttribute("Blog", blog);
 		return "theme/magdesign/blogdetail";
 	}
@@ -70,7 +68,10 @@ public class MainController {
 	}
 	
 	@GetMapping("/editBlogAdmin")
-	public String editBlogController(Model model) {
+	public String editBlogController(@RequestParam int id, Model model) {
+		read();
+		Blog blog = findByID(id);
+		model.addAttribute("Blog", blog);
 		return "theme/admin/editBlogAdmin";
 	}
 

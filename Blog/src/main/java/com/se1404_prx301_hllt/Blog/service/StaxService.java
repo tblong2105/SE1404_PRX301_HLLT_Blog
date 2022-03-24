@@ -65,7 +65,6 @@ public class StaxService {
 						listBlogs.add(blog);
 						break;
 					case "title":
-						System.err.println(tagContent);
 						blog.setTitle(tagContent);
 						break;
 					case "category":
@@ -207,14 +206,17 @@ public class StaxService {
 			blog.setDate(formattedDate);
 			
 			String bImage = StringUtils.cleanPath(blogImage.getOriginalFilename());
-			saveImage(blogImage, index);
-			blog.setImage(index + bImage);
+			String blogImageTime = LocalDateTime.now() +"";
+			saveImage(blogImage, index, blogImageTime);
+			blog.setImage("img\\" + blogImageTime + index + bImage);
 			
 			String aImage = StringUtils.cleanPath(authorImage.getOriginalFilename());
-			saveImage(authorImage, index);
-			blog.setAuthorImage(index + aImage);
+			String authorImageTime = LocalDateTime.now() +"author";
+			saveImage(authorImage, index, authorImageTime);
+			blog.setAuthorImage("img\\" + authorImageTime + index + aImage);
 			
 			listBlog.add(blog);
+			
 			writeData(listBlog);
 			return true;
 		} catch (Exception e) {
@@ -225,9 +227,9 @@ public class StaxService {
 	
 	private final Path root = Paths.get("src/main/resources/static/img");
 	
-	public void saveImage(MultipartFile file, int id) {
+	public void saveImage(MultipartFile file, int id, String time) {
 	    try {
-	      Files.copy(file.getInputStream(), this.root.resolve(id + file.getOriginalFilename()));
+	      Files.copy(file.getInputStream(), this.root.resolve(time + id + file.getOriginalFilename()));
 	    } catch (Exception e) {
 	      throw new RuntimeException("Could not store the file. Error: " + e.getMessage());
 	    }
@@ -276,6 +278,16 @@ public class StaxService {
 		} catch (Exception e) {
 			return false;
 		}
+	}
+	
+	public Blog findByID(int id) {
+		List<Blog> listBlog = getListBlog();
+		for (int i = 0; i < listBlog.size(); i++) {
+			if (listBlog.get(i).getId() == id) {
+				return listBlog.get(i);
+			}
+		}
+		return new Blog();
 	}
 
 }

@@ -23,42 +23,44 @@ public class AdminController {
 	List<Blog> listBlog = new ArrayList<>();
 	@Autowired
 	private StaxService staxService;
-	
+
 	@GetMapping("/allBlogAdmin")
 	public String adminController(Model model) {
 		listBlog = staxService.getListBlog();
-		System.err.println(listBlog);
-		model.addAttribute("listBlog",listBlog);
+		model.addAttribute("listBlog", listBlog);
 		return "theme/admin/allBlogAdmin";
 	}
-	
-	
+
 	@GetMapping("/addBlogAdmin")
 	public String addBlogController(@ModelAttribute("blog") Blog blog, ModelMap modelMap, Model model) {
 		return "theme/admin/addBlogAdmin";
 	}
-	
-	 @PostMapping("/addBlog")
-	public String addBlog(@ModelAttribute("blog") Blog blog, @RequestParam("author-image") MultipartFile authorImage, @RequestParam("blog-image") MultipartFile blogImage, ModelMap modelMap, Model model) {
-		 listBlog = staxService.getListBlog();
-		 modelMap.addAttribute("blog", blog);
-		 staxService.create(blog, blogImage, authorImage);
+
+	@PostMapping("/addBlog")
+	public String addBlog(@ModelAttribute("blog") Blog blog, @RequestParam("author-image") MultipartFile authorImage,
+			@RequestParam("blog-image") MultipartFile blogImage, ModelMap modelMap, Model model) {
+		listBlog = staxService.getListBlog();
+		modelMap.addAttribute("blog", blog);
+		staxService.create(blog, blogImage, authorImage);
 		return "redirect:/addBlogAdmin";
 	}
-	
+
+//	@GetMapping("/editBlogAdmin")
+//	public String editBlogController(Model model) {
+//		return "theme/admin/editBlogAdmin";
+//	}
 	@GetMapping("/editBlogAdmin")
-	public String editBlogController(Model model) {
-		return "theme/admin/editBlogAdmin";
-	}
-	
-	
+    public String editBlogController(@RequestParam int id, Model model) {
+        listBlog = staxService.read();
+        Blog blog = staxService.findByID(id);
+        model.addAttribute("Blog", blog);
+        return "theme/admin/editBlogAdmin";
+    }
+
 	@RequestMapping(value = "/delete_blog", method = RequestMethod.GET)
-	public String handleDeleteUser(@RequestParam(name="id")int id) {
+	public String handleDeleteUser(@RequestParam(name = "id") int id) {
 		staxService.delete(id);
-	    return "redirect:/allBlogAdmin";
+		return "redirect:/allBlogAdmin";
 	}
-	
-	
-	
-	
+
 }

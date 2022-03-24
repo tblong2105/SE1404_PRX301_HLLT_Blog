@@ -81,8 +81,7 @@
 		<div class="container">
 			<div class="row justify-content-center mb-5">
 				<div class="col-lg-7 text-center" >
-					<h2 class="heading"><a href="single.html"  style="color:black !important">Your most unhappy customers are your
-												greatest source of learning.</a></h2>
+					<h2 class="heading"><a href="single.html"  style="color:black !important" th:text="${Blog.title}"/></h2>
 				</div>
 			</div>
 			<div class="row">
@@ -93,44 +92,25 @@
 								<div class="post-entry d-lg-flex">
 									<div class="me-lg-5 thumbnail mb-4 mb-lg-0">
 										<a href="single.html">
-											<img src="images/xpost_lg_1.jpg.pagespeed.ic.FHpKG3L7pq.webp" alt="Image"
+											<img th:src="${Blog.image}" alt="Image"
 												class="img-fluid">
 										</a>
 									</div>
 									<div class="content align-self-center">
 										<div class="post-meta mb-3">
-											<a href="#" class="category">Business</a>, <a href="#"
-												class="category">Travel</a> &mdash;
-											<span class="date">July 2, 2020</span>
+											<a href="#" class="category" th:text="${Blog.category}"/>
+											<span class="date" th:text="${Blog.date}"/>
 										</div>
 										
-										<p>Far far away, behind the word mountains, far from the countries Vokalia and
-											Consonantia, there live the blind texts. Separated they live in
-											Bookmarksgrove right at the coast of the Semantics, a large language ocean.
-											Far far away, behind the word mountains, far from the countries Vokalia and
-											Consonantia, there live the blind texts. Separated they live in
-											Bookmarksgrove right at the coast of the Semantics, a large language ocean.
-											Far far away, behind the word mountains, far from the countries Vokalia and
-											Consonantia, there live the blind texts. Separated they live in
-											Bookmarksgrove right at the coast of the Semantics, a large language ocean.
-											Far far away, behind the word mountains, far from the countries Vokalia and
-											Consonantia, there live the blind texts. Separated they live in
-											Bookmarksgrove right at the coast of the Semantics, a large language ocean.
-											Far far away, behind the word mountains, far from the countries Vokalia and
-											Consonantia, there live the blind texts. Separated they live in
-											Bookmarksgrove right at the coast of the Semantics, a large language ocean.
-											Far far away, behind the word mountains, far from the countries Vokalia and
-											Consonantia, there live the blind texts. Separated they live in
-											Bookmarksgrove right at the coast of the Semantics, a large language ocean.
-										</p>
+										<p th:text="${Blog.longDescription}"/>
 										<a href="#" class="post-author d-flex align-items-center">
 											<div class="author-pic">
-												<img src="images/xperson_1.jpg.pagespeed.ic.Zebptmx_f8.webp"
+												<img th:src="${Blog.authorImage}"
 													alt="Image">
 											</div>
 											<div class="text">
-												<strong>Sergy Campbell</strong>
-												<span>CEO and Founder</span>
+												<strong th:text="${Blog.authorName}"/>
+												<span th:text="${Blog.authorPosition}"/>
 											</div>
 										</a>
 									</div>

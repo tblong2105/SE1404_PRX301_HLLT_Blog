@@ -24,9 +24,10 @@ public class MainController {
 
 	@GetMapping("/")
 	public String mainController(Model model) {
-		System.out.println("======init======>" + listBlog);
+//		System.out.println("======init======>" + listBlog);
 		read();
-		System.out.println("======read======>" + listBlog);
+		model.addAttribute("listBlog", listBlog);
+//		System.out.println("======read======>" + listBlog);
 //		Blog blog=new Blog("1","2","3","4","5","6","7","8");
 //		create(blog);
 //		System.out.println("======create======>"+ listBlog);
@@ -45,6 +46,11 @@ public class MainController {
 
 	@GetMapping("/blog")
 	public String getBlogByIdController(@RequestParam int id, Model model) {
+		read();
+		System.out.println("===========>"+listBlog);
+		Blog blog = findByID(id);
+		System.out.println("===========>"+blog);
+		model.addAttribute("Blog", blog);
 		return "theme/magdesign/blogdetail";
 	}
 	
@@ -118,6 +124,15 @@ public class MainController {
 		} catch (Exception e) {
 			return false;
 		}
+	}
+	
+	public Blog findByID(int id) {
+		for (int i = 0; i < listBlog.size(); i++) {
+			if (listBlog.get(i).getId() == id) {
+				return listBlog.get(i);
+			}
+		}
+		return new Blog();
 	}
 
 }

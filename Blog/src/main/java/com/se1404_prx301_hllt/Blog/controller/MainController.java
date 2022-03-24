@@ -24,9 +24,12 @@ public class MainController {
 
 	@GetMapping("/")
 	public String mainController(Model model) {
-//		System.out.println("======init======>" + listBlog);
 		read();
-		model.addAttribute("listBlog", listBlog);
+		if (listBlog.size()>6)
+			model.addAttribute("listBlog", listBlog.subList(0, 6));
+		else {
+			model.addAttribute("listBlog", listBlog);
+		}
 //		System.out.println("======read======>" + listBlog);
 //		Blog blog=new Blog("1","2","3","4","5","6","7","8");
 //		create(blog);
@@ -41,6 +44,8 @@ public class MainController {
 
 	@GetMapping("/allblog")
 	public String allBlogController(Model model) {
+		read();
+		model.addAttribute("listBlog", listBlog);
 		return "theme/magdesign/allblog";
 	}
 

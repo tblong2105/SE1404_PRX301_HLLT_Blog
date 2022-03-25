@@ -1,6 +1,7 @@
 package com.se1404_prx301_hllt.Blog.controller;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,7 @@ public class MainController {
 	@GetMapping("/")
 	public String mainController(Model model) {
 		listBlog = staxService.read();
+		Collections.reverse(listBlog);
 		if (listBlog.size()>6)
 			model.addAttribute("listBlog", listBlog.subList(0, 6));
 		else {
@@ -32,6 +34,7 @@ public class MainController {
 	@GetMapping("/allblog")
 	public String allBlogController(Model model) {
 		listBlog = staxService.read();
+		Collections.reverse(listBlog);
 		model.addAttribute("listBlog", listBlog);
 		return "theme/magdesign/allblog";
 	}

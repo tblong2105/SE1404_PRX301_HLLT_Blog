@@ -207,13 +207,13 @@ public class StaxService {
 			
 			String bImage = StringUtils.cleanPath(blogImage.getOriginalFilename());
 			String blogImageTime = LocalDateTime.now() +"";
-			saveImage(blogImage, index, blogImageTime);
-			blog.setImage("img\\" + blogImageTime + index + bImage);
+			saveImage(blogImage, blogImageTime);
+			blog.setImage("img\\" + blogImageTime);
 			
 			String aImage = StringUtils.cleanPath(authorImage.getOriginalFilename());
 			String authorImageTime = LocalDateTime.now() +"author";
-			saveImage(authorImage, index, authorImageTime);
-			blog.setAuthorImage("img\\" + authorImageTime + index + aImage);
+			saveImage(authorImage, authorImageTime);
+			blog.setAuthorImage("img\\" + authorImageTime);
 			
 			listBlog.add(blog);
 			
@@ -227,9 +227,9 @@ public class StaxService {
 	
 	private final Path root = Paths.get("src/main/resources/static/img");
 	
-	public void saveImage(MultipartFile file, int id, String time) {
+	public void saveImage(MultipartFile file, String time) {
 	    try {
-	      Files.copy(file.getInputStream(), this.root.resolve(time + id + file.getOriginalFilename()));
+	      Files.copy(file.getInputStream(), this.root.resolve(time ));
 	    } catch (Exception e) {
 	      throw new RuntimeException("Could not store the file. Error: " + e.getMessage());
 	    }
@@ -257,8 +257,29 @@ public class StaxService {
 		return listBlog;
 	}
 	
-	public Boolean update(Blog blog) {
+	public Boolean update(Blog blog, MultipartFile blogImage, MultipartFile authorImage) {
 		List<Blog> listBlog = getListBlog();
+	
+		LocalDateTime myDateObj = LocalDateTime.now();
+		DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		String formattedDate = myDateObj.format(myFormatObj);
+		blog.setDate(formattedDate);
+		
+		
+		if(blogImage.getOriginalFilename() != "") {
+			String bImage = StringUtils.cleanPath(blogImage.getOriginalFilename());
+			String blogImageTime = LocalDateTime.now() +"";
+			saveImage(blogImage, blogImageTime);
+			blog.setImage("img\\" + blogImageTime);
+		}
+		
+		if(authorImage.getOriginalFilename() != "") {
+			String aImage = StringUtils.cleanPath(authorImage.getOriginalFilename());
+			String authorImageTime = LocalDateTime.now() +"author";
+			saveImage(authorImage, authorImageTime);
+			blog.setAuthorImage("img\\" + authorImageTime );
+		}
+		
 		try {
 			for (int i = 0; i < listBlog.size(); i++)
 				if (listBlog.get(i).getId() == blog.getId()) {
@@ -303,6 +324,19 @@ public class StaxService {
 			}
 		}
 		return result;
+	
+	
+	public Blog setDefaultImage(int id, Blog blog, boolean authorImage, boolean blogImage) {
+		Blog b = findByID(id);
+		
+		if(authorImage) {
+			blog.setAuthorImage(b.getAuthorImage());
+		}
+		if(blogImage) {
+			blog.setImage(b.getImage());
+		}
+		
+		return blog;
 	}
 
 }

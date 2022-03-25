@@ -470,9 +470,6 @@
 							<li>
 								<a class="" th:href="@{/addBlogAdmin}">Add Blog</a>
 							</li>
-							<li>
-								<a class="" href="/editBlogAdmin">Edit Blog</a>
-							</li>
 						</ul>
 					</li>
 				</ul>
@@ -598,7 +595,7 @@
 															class="fa fa-trash" style="font-size: 24px"></i></a>
 												</td>
 												<td style="text-align: center;">
-													<i class="fa fa-edit" style="font-size: 24px"></i>
+													<a th:href="@{/editBlogAdmin(id=${blog.id})}"><i class="fa fa-edit" style="font-size: 24px"></i></a>
 												</td>
 											</tr>
 

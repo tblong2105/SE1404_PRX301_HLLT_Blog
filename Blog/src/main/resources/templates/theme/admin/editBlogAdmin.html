@@ -544,7 +544,7 @@
 										<span class="desc"></span>
 										<div class="controls">
 											<input type="number"  th:value="${Blog.id}" class="form-control"
-												id="field-1"  name="id" >
+												id="field-1"  name="id" required>
 										</div>
 									</div>
 
@@ -554,7 +554,7 @@
 										<span class="desc"></span>
 										<div class="controls">
 											<input type="text"  th:value="${Blog.title}" class="form-control"
-												id="field-1"  th:field="*{title}"  >
+												id="field-1"  th:field="*{title}" required >
 										</div>
 									</div>
 
@@ -562,7 +562,7 @@
 										<label class="form-label" for="field-2">Blog Categories</label>
 										<span class="desc"></span>
 										<div class="controls">
-											<input type="text" th:value="${Blog.category}" class="form-control"  th:field="*{category}" id="field-2">
+											<input type="text" th:value="${Blog.category}" class="form-control"  th:field="*{category}" id="field-2" required>
 										</div>
 									</div>
 
@@ -571,7 +571,7 @@
 										<span class="desc"></span>
 										<div class="controls"> 
 											<input type="text"  th:value="${Blog.sortDescription}" class="form-control" th:field="*{sortDescription}"
-												id="field-3">
+												id="field-3" required>
 										</div>
 									</div>
 
@@ -580,7 +580,7 @@
 										<span class="desc"></span>
 										<div class="controls">
 											<input type="text" th:value="${Blog.longDescription}" class="form-control" th:field="*{longDescription}"
-												id="field-4">
+												id="field-4" required>
 										</div>
 									</div>
 
@@ -598,7 +598,7 @@
 										<label class="form-label" for="field-6">Author Name</label>
 										<span class="desc"></span>
 										<div class="controls">
-											<input type="text" th:value="${Blog.authorName}" class="form-control"  th:field="*{authorName}" id="field-6">
+											<input type="text" th:value="${Blog.authorName}" class="form-control"  th:field="*{authorName}" id="field-6" required>
 										</div>
 									</div>
 
@@ -607,7 +607,7 @@
 										<span class="desc"></span>
 										<div class="controls">
 											<input type="text" th:value="${Blog.authorPosition}" class="form-control" th:field="*{authorPosition}"
-												id="field-7">
+												id="field-7" required>
 										</div>
 									</div>
 

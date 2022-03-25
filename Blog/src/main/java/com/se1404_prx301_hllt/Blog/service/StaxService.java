@@ -324,7 +324,7 @@ public class StaxService {
 			}
 		}
 		return result;
-	
+	}
 	
 	public Blog setDefaultImage(int id, Blog blog, boolean authorImage, boolean blogImage) {
 		Blog b = findByID(id);

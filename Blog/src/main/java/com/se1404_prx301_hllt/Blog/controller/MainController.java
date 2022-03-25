@@ -51,7 +51,7 @@ public class MainController {
 	public String searchBlog(@RequestParam String keyword, Model model) {
 		ArrayList<Blog> resultBlog = staxService.findByKeyword(keyword);
 		model.addAttribute("listBlog", resultBlog);
-		model.addAttribute("keyword", "Result for \""+keyword+"\"");
+		model.addAttribute("keyword", keyword);
 		return "theme/magdesign/search";
 	}
 

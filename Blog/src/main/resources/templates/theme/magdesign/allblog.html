@@ -34,9 +34,10 @@
 						<a href="/" class="logo m-0 text-uppercase">HLLT Blog</a>
 					</div>
 					<div class="col-md-3 order-3 order-md-1">
-						<form action="#" class="search-form">
+						<form th:action="@{/search}" method="post" class="search-form">
 							<span class="icon-search2"></span>
-							<input type="search" class="form-control" placeholder="Search...">
+							<input id="myInput" name="keyword" type="search" class="form-control" th:value="${keyword}" placeholder="Search...">
+							<bttonn id="myBtn"  hidden>Button<buttoni>
 						</form>
 					</div>
 					<div class="col-md-3 text-end order-2 order-md-3 mb-3 mb-md-0">

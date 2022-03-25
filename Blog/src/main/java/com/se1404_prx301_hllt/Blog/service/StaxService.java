@@ -289,5 +289,20 @@ public class StaxService {
 		}
 		return new Blog();
 	}
+	
+	public ArrayList<Blog> findByKeyword(String keyword){
+		List<Blog> listBlog = getListBlog();
+		ArrayList<Blog> result = new ArrayList<>();
+		for (Blog blog : listBlog) {
+			if ((blog.getTitle().toUpperCase().contains(keyword.toUpperCase())) 
+					|| (blog.getCategory().toUpperCase().contains(keyword.toUpperCase()))
+					|| (blog.getSortDescription().toUpperCase().contains(keyword.toUpperCase()))
+					|| (blog.getLongDescription().toUpperCase().contains(keyword.toUpperCase()))
+					|| (blog.getAuthorName().toUpperCase().contains(keyword.toUpperCase()))) {
+				result.add(blog);
+			}
+		}
+		return result;
+	}
 
 }

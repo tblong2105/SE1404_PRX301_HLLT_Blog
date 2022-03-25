@@ -3,11 +3,11 @@ package com.se1404_prx301_hllt.Blog.controller;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.se1404_prx301_hllt.Blog.model.Blog;
@@ -47,7 +47,12 @@ public class MainController {
 		return "theme/magdesign/blogdetail";
 	}
 
-	
-	
+	@RequestMapping("/search")
+	public String searchBlog(@RequestParam String keyword, Model model) {
+		ArrayList<Blog> resultBlog = staxService.findByKeyword(keyword);
+		model.addAttribute("listBlog", resultBlog);
+		model.addAttribute("keyword", "Result for \""+keyword+"\"");
+		return "theme/magdesign/search";
+	}
 
 }

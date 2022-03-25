@@ -11,6 +11,10 @@
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="css/style.css"/>
 	<title>HLLT Blog</title>
+	
+	<!-- NEW -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 
 <body>
@@ -27,7 +31,7 @@
 			<div class="site-navigation">
 				<div class="row">
 					<div class="col-md-6 text-center order-1 order-md-2 mb-3 mb-md-0">
-						<a href="#" class="logo m-0 text-uppercase">HLLT Blog</a>
+						<a href="/" class="logo m-0 text-uppercase">HLLT Blog</a>
 					</div>
 					<div class="col-md-3 order-3 order-md-1">
 						<form th:action="@{/search}" method="post" class="search-form">
@@ -51,10 +55,8 @@
 					</div>
 				</div>
 				<ul class="js-clone-nav d-none d-lg-inline-none text-start site-menu float-end">
-					<li class="active"><a href="#">Home</a></li>
-					<li>
-						<a href="allblog">All Blog</a>
-					</li>
+					<li><a href="/">Home</a></li>
+					<li class="active"><a href="#">All Blog</a></li>
 					<li><a href="#">Travel</a></li>
 					<li><a href="#">Food</a></li>
 					<li><a href="#">Technology</a></li>
@@ -67,46 +69,7 @@
 		<div class="container">
 			<div class="row justify-content-center mb-5">
 				<div class="col-lg-7 text-center">
-					<h2 class="heading">Trending</h2>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="posts-slide-wrap">
-						<div class="posts-slide" id="posts-slide">
-						
-							<div class="item" th:each="blog,iter : ${listBlog}">
-								<div class="post-entry d-lg-flex">
-									<div class="me-lg-5 thumbnail mb-4 mb-lg-0">
-										<a th:href="@{'blog?id='+${blog.id}}">
-											<img th:src="${blog.image}" alt="Image"
-												class="img-fluid">
-										</a>
-									</div>
-									<div class="content align-self-center">
-										<div class="post-meta mb-3">
-											<a th:href="@{'blog?id='+${blog.id}}" class="category" th:text="${blog.category}" />
-											<span class="date" th:text="${blog.date}"/>
-										</div>
-										<h2 class="heading"><a th:href="@{'blog?id='+${blog.id}}" th:text="${blog.title}"/></h2>
-										<p th:text="${blog.sortDescription}"/>
-										<a th:href="@{'blog?id='+${blog.id}}" class="post-author d-flex align-items-center">
-											<div class="author-pic">
-												<img th:src="${blog.authorImage}"
-													alt="Image">
-											</div>
-											<div class="text">
-												<strong th:text="${blog.authorName}"/>
-												<span th:text="${blog.authorPosition}"/>
-											</div>
-										</a>
-									</div>
-								</div>
-							</div>
-
-
-						</div>
-					</div>
+					<h2 class="heading" th:text="${keyword}"/>
 				</div>
 			</div>
 		</div>
@@ -114,19 +77,17 @@
 	<div class="section">
 		<div class="container">
 			<div class="row g-5">
-			
 				<div class="col-lg-4" th:each="blog,iter : ${listBlog}">
-					<div class="post-entry d-block small-post-entry-v">
+					<div class="post-entry d-block small-post-entry-v" >
 						<div class="thumbnail">
 							<a th:href="@{'blog?id='+${blog.id}}">
 								<img th:src="${blog.image}" alt="Image" class="img-fluid">
 							</a>
 						</div>
-						<div class="content">
+						<div class="content" >
 							<div class="post-meta mb-1">
-								<a th:href="@{'blog?id='+${blog.id}}" class="category" th:text="${blog.category}"/>
-								&mdash;
-								<span class="date" th:text="${blog.date}" />
+								<a th:href="@{'blog?id='+${blog.id}}" class="category" th:text="${blog.category}"></a>
+								<span class="date" th:text="${blog.date}"></span>
 							</div>
 							<h2 class="heading mb-3"><a th:href="@{'blog?id='+${blog.id}}" th:text="${blog.title}"/></h2>
 							<p th:text="${blog.sortDescription}"/>
@@ -142,8 +103,6 @@
 						</div>
 					</div>
 				</div>
-				
-				
 			</div>
 		</div>
 	</div>

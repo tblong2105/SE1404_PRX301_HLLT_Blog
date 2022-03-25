@@ -511,30 +511,18 @@
 				<div class="col-md-9 col-sm-12 col-xs-12">
 
 					<div class="input-group primary">
+						
 						<span class="input-group-addon">
 							<span class="arrow"></span>
 							<i class="fa fa-search"></i>
 						</span>
-						<input type="text" class="form-control search-page-input" placeholder="Search" value="">
+						<form th:action="@{/searchBlog}" method="post">
+						<input  id="myInput" name="keyword" type="text" th:value="${keyword}" class="form-control search-page-input" placeholder="Search" >
+						<button id="myBtn" hidden >Button</button>
+						</form>
 					</div><br>
 				</div>
-				<div class="col-md-3 col-sm-12 col-xs-12">
-					<nav class='pull-right'>
-						<!--                                  <ul class="pager" style="margin:0px;">
-                                                                                                <li><a href="#"><i class='fa fa-arrow-left icon-xs icon-orange icon-secondary'></i></a></li>
-                                                                                                <li><a href="#"><i class='fa fa-arrow-right icon-xs icon-orange icon-secondary'></i></a></li>
-                                                                                              </ul> -->
-
-						<ul class="pagination pull-right" style="margin:0px;">
-							<li><a href="#">«</a></li>
-							<li class="active"><a href="#">1</a></li>
-							<li><a href="#">2</a></li>
-							<li><a href="#">3</a></li>
-							<li><a href="#">»</a></li>
-						</ul>
-
-					</nav>
-				</div>
+				
 
 				<div class="clearfix"></div><br>
 
@@ -862,6 +850,15 @@
 		</div>
 	</div>
 	<!-- modal end -->
+	<script>
+		var input = document.getElementById("myInput");
+		input.addEventListener("keyup", function(event) {
+		  if (event.keyCode === 13) {
+		   event.preventDefault();
+		   document.getElementById("myBtn").click();
+		  }
+		});
+	</script>
 </body>
 
 </html>

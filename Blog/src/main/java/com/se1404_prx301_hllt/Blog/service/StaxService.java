@@ -207,13 +207,13 @@ public class StaxService {
 			
 			String bImage = StringUtils.cleanPath(blogImage.getOriginalFilename());
 			String blogImageTime = LocalDateTime.now() +"";
-			saveImage(blogImage, index, blogImageTime);
-			blog.setImage("img\\" + blogImageTime + index + bImage);
+			saveImage(blogImage, blogImageTime);
+			blog.setImage("img\\" + blogImageTime);
 			
 			String aImage = StringUtils.cleanPath(authorImage.getOriginalFilename());
 			String authorImageTime = LocalDateTime.now() +"author";
-			saveImage(authorImage, index, authorImageTime);
-			blog.setAuthorImage("img\\" + authorImageTime + index + aImage);
+			saveImage(authorImage, authorImageTime);
+			blog.setAuthorImage("img\\" + authorImageTime);
 			
 			listBlog.add(blog);
 			
@@ -227,9 +227,9 @@ public class StaxService {
 	
 	private final Path root = Paths.get("src/main/resources/static/img");
 	
-	public void saveImage(MultipartFile file, int id, String time) {
+	public void saveImage(MultipartFile file, String time) {
 	    try {
-	      Files.copy(file.getInputStream(), this.root.resolve(time + id + file.getOriginalFilename()));
+	      Files.copy(file.getInputStream(), this.root.resolve(time ));
 	    } catch (Exception e) {
 	      throw new RuntimeException("Could not store the file. Error: " + e.getMessage());
 	    }
@@ -269,18 +269,17 @@ public class StaxService {
 		if(blogImage.getOriginalFilename() != "") {
 			String bImage = StringUtils.cleanPath(blogImage.getOriginalFilename());
 			String blogImageTime = LocalDateTime.now() +"";
-			saveImage(blogImage, blog.getId(), blogImageTime);
-			blog.setImage("img\\" + blogImageTime + blog.getId() + bImage);
+			saveImage(blogImage, blogImageTime);
+			blog.setImage("img\\" + blogImageTime);
 		}
 		
 		if(authorImage.getOriginalFilename() != "") {
 			String aImage = StringUtils.cleanPath(authorImage.getOriginalFilename());
 			String authorImageTime = LocalDateTime.now() +"author";
-			saveImage(authorImage, blog.getId(), authorImageTime);
-			blog.setAuthorImage("img\\" + authorImageTime + blog.getId() + aImage);
+			saveImage(authorImage, authorImageTime);
+			blog.setAuthorImage("img\\" + authorImageTime );
 		}
 		
-		System.err.println(blog);
 		try {
 			for (int i = 0; i < listBlog.size(); i++)
 				if (listBlog.get(i).getId() == blog.getId()) {

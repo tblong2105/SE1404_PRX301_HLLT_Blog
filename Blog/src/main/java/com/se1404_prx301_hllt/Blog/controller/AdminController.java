@@ -44,14 +44,27 @@ public class AdminController {
 		staxService.create(blog, blogImage, authorImage);
 		return "redirect:/addBlogAdmin";
 	}
+	
+	
 
-//	@GetMapping("/editBlogAdmin")
-//	public String editBlogController(Model model) {
-//		return "theme/admin/editBlogAdmin";
-//	}
+	@PostMapping("/editBlog")
+	public String editBlog(@ModelAttribute("Blog") Blog blog, @RequestParam(name = "id") int id, @RequestParam("author-image") MultipartFile authorImage,
+			@RequestParam("blog-image") MultipartFile blogImage, ModelMap modelMap, Model model) {
+		listBlog = staxService.getListBlog();
+		modelMap.addAttribute("blog", blog);
+		
+		if(authorImage.getOriginalFilename() == "" || blogImage.getOriginalFilename() == "") {
+			blog = staxService.setDefaultImage(id, blog, true, true);
+		}
+		
+		
+		staxService.update(blog, blogImage, authorImage);
+		return "redirect:/allBlogAdmin";
+	}
+
 	@GetMapping("/editBlogAdmin")
-    public String editBlogController(@RequestParam int id, Model model) {
-        listBlog = staxService.read();
+    public String editBlogController( @ModelAttribute("blog") Blog blogModel, @RequestParam(name = "id") int id, Model model) {
+		listBlog = staxService.read();
         Blog blog = staxService.findByID(id);
         model.addAttribute("Blog", blog);
         return "theme/admin/editBlogAdmin";

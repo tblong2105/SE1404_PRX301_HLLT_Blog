@@ -257,8 +257,30 @@ public class StaxService {
 		return listBlog;
 	}
 	
-	public Boolean update(Blog blog) {
+	public Boolean update(Blog blog, MultipartFile blogImage, MultipartFile authorImage) {
 		List<Blog> listBlog = getListBlog();
+	
+		LocalDateTime myDateObj = LocalDateTime.now();
+		DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		String formattedDate = myDateObj.format(myFormatObj);
+		blog.setDate(formattedDate);
+		
+		
+		if(blogImage.getOriginalFilename() != "") {
+			String bImage = StringUtils.cleanPath(blogImage.getOriginalFilename());
+			String blogImageTime = LocalDateTime.now() +"";
+			saveImage(blogImage, blog.getId(), blogImageTime);
+			blog.setImage("img\\" + blogImageTime + blog.getId() + bImage);
+		}
+		
+		if(authorImage.getOriginalFilename() != "") {
+			String aImage = StringUtils.cleanPath(authorImage.getOriginalFilename());
+			String authorImageTime = LocalDateTime.now() +"author";
+			saveImage(authorImage, blog.getId(), authorImageTime);
+			blog.setAuthorImage("img\\" + authorImageTime + blog.getId() + aImage);
+		}
+		
+		System.err.println(blog);
 		try {
 			for (int i = 0; i < listBlog.size(); i++)
 				if (listBlog.get(i).getId() == blog.getId()) {
@@ -288,6 +310,21 @@ public class StaxService {
 			}
 		}
 		return new Blog();
+	}
+	
+	
+	
+	public Blog setDefaultImage(int id, Blog blog, boolean authorImage, boolean blogImage) {
+		Blog b = findByID(id);
+		
+		if(authorImage) {
+			blog.setAuthorImage(b.getAuthorImage());
+		}
+		if(blogImage) {
+			blog.setImage(b.getImage());
+		}
+		
+		return blog;
 	}
 
 }

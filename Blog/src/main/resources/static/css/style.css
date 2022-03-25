@@ -7031,3 +7031,42 @@ a {
       .site-footer .social li a:hover {
         background: #f79918;
         color: #fff; }
+        
+        
+        
+.icon-twitter{
+	content:url("/images/icons8-twitter.svg");
+	vertical-align: middle;
+}
+
+.icon-facebook{
+	content:url("/images/icons8-facebook.svg");
+	vertical-align: middle;
+}
+
+.icon-instagram{
+	content:url("/images/icons8-instagram.svg");
+	vertical-align: middle;
+}
+
+.icon-search2{
+	content:url("/images/icons8-search.svg");
+	vertical-align: middle;
+	width: 17px;
+}
+
+.icon-linkedin{
+	content:url("/images/icons8-linkedin.svg");
+	vertical-align: middle;
+}
+
+.icon-youtube-play{
+	content:url("/images/icons8-youtube.svg");
+	vertical-align: middle;
+}
+
+.icon-heart{
+	content:url("/images/icons8-heart-30.png");
+	vertical-align: middle;
+	width: 12px;
+}

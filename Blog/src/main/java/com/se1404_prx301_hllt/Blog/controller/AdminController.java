@@ -1,6 +1,7 @@
 package com.se1404_prx301_hllt.Blog.controller;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,7 @@ public class AdminController {
 	@GetMapping("/allBlogAdmin")
 	public String adminController(Model model) {
 		listBlog = staxService.getListBlog();
+		Collections.reverse(listBlog);
 		model.addAttribute("listBlog", listBlog);
 		return "theme/admin/allBlogAdmin";
 	}

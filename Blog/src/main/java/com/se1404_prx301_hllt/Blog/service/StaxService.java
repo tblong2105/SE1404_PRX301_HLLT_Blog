@@ -10,6 +10,7 @@ import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.xml.stream.XMLEventFactory;
@@ -206,12 +207,12 @@ public class StaxService {
 			blog.setDate(formattedDate);
 			
 			String bImage = StringUtils.cleanPath(blogImage.getOriginalFilename());
-			String blogImageTime = LocalDateTime.now() +"";
+			String blogImageTime = new Date().getTime() +"";
 			saveImage(blogImage, blogImageTime);
 			blog.setImage("img\\" + blogImageTime);
 			
 			String aImage = StringUtils.cleanPath(authorImage.getOriginalFilename());
-			String authorImageTime = LocalDateTime.now() +"author";
+			String authorImageTime = new Date().getTime() +"author";
 			saveImage(authorImage, authorImageTime);
 			blog.setAuthorImage("img\\" + authorImageTime);
 			
@@ -229,7 +230,7 @@ public class StaxService {
 	
 	public void saveImage(MultipartFile file, String time) {
 	    try {
-	      Files.copy(file.getInputStream(), this.root.resolve(time ));
+	      Files.copy(file.getInputStream(), this.root.resolve(time));
 	    } catch (Exception e) {
 	      throw new RuntimeException("Could not store the file. Error: " + e.getMessage());
 	    }
@@ -268,14 +269,14 @@ public class StaxService {
 		
 		if(blogImage.getOriginalFilename() != "") {
 			String bImage = StringUtils.cleanPath(blogImage.getOriginalFilename());
-			String blogImageTime = LocalDateTime.now() +"";
+			String blogImageTime = new Date().getTime() +"";
 			saveImage(blogImage, blogImageTime);
 			blog.setImage("img\\" + blogImageTime);
 		}
 		
 		if(authorImage.getOriginalFilename() != "") {
 			String aImage = StringUtils.cleanPath(authorImage.getOriginalFilename());
-			String authorImageTime = LocalDateTime.now() +"author";
+			String authorImageTime = new Date().getTime() +"author";
 			saveImage(authorImage, authorImageTime);
 			blog.setAuthorImage("img\\" + authorImageTime );
 		}

@@ -75,5 +75,13 @@ public class AdminController {
 		staxService.delete(id);
 		return "redirect:/allBlogAdmin";
 	}
+	
+	@RequestMapping("/searchBlog")
+	public String searchBlog(@RequestParam String keyword, Model model) {
+		ArrayList<Blog> resultBlog = staxService.findByKeyword(keyword);
+		model.addAttribute("listBlog", resultBlog);
+		model.addAttribute("keyword", keyword);
+		return "theme/admin/allBlogAdmin";
+	}
 
 }
